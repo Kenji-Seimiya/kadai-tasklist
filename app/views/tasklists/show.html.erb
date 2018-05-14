@@ -1,7 +1,7 @@
 <h1>id:<%= @tasklist.id %>のタスク詳細ページ</h1>
 
 <p>
-  <%= @tasklist.content %>
+  <%= @tasklist.content %>&gt;<%= @tasklist.status %>
 </p>
 
 <%= link_to '一覧に戻る' ,tasklists_path %>

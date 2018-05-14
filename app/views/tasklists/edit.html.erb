@@ -1,8 +1,13 @@
 <h1>id:<%= @tasklist.id %>の編集ページ</h1>
 
 <%= form_for(@tasklist) do |f| %>
+
 <%= f.label :content, 'タスク' %>
 <%= f.text_field :content %>
+
+<%= f.label :status ,'ステータス' %>
+<%= f.select :status,[['未了','未了'],['完了','完了']] %>
+
 <%= f.submit '登録' %>
 <% end %>
 
