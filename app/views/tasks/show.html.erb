@@ -8,6 +8,6 @@
   <%= @task.status %>
 </p>
 
-<%= link_to '一覧に戻る' ,tasks_path %>
-<%= link_to '訂正' , edit_task_path %>
-<%= link_to '削除' , @task, method: :delete, data:{confirm: '本当に削除してもよろしいですか'} %>
+<%= link_to '一覧に戻る' ,tasks_path, class: "btn btn-default" %>
+<%= link_to '訂正' , edit_task_path, class: "btn btn-default" %>
+<%= link_to '削除' , @task, method: :delete, data:{confirm: '本当に削除してもよろしいですか'}, class: "btn btn-default" %>
