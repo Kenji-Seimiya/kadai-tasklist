@@ -1,15 +1,16 @@
-<h1>タスク一覧</h1>
-  
-  <ul>
-    <% @tasks.each do |task| %>
-      <li> 
-<%= link_to task.id , task %>
-:
-<%= task.content %>
-=>
-<%= task.status %>
-</li>
-<% end %>
-  </ul>
-  
-  <%= link_to '新規作成', new_task_path, class: "btn btn-default" %>
+<% #if logged_in? %>
+
+<ul>
+  <% @user.tasks.each do |task| %>
+  <li>
+    <%= task.name %> <%= task.content %>
+  </li>
+  <% end %>
+</ul>
+
+<%# else %>
+
+<%= render 'users/users_form', user: @user %>
+
+<%= link_to '新規登録',  'users/new' %>
+

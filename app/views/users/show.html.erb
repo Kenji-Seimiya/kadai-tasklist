@@ -1,0 +1,11 @@
+<%= @user %>
+
+<% unless @tasks == nil %>
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= task %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
