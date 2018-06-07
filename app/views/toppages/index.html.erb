@@ -1,5 +1,13 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>Tasklist</h1>
+<% if logged_in? %>
+<p>
+  ログインユーザー：<%= current_user.name %>
+</p>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Tasklist</h1>
+      
+      <%= link_to '新規アカウント登録', signup_path, class: "btn btn-primary" %>
+    </div>
   </div>
-</div>
+<% end %>

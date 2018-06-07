@@ -3,20 +3,8 @@
     
     <%= form_for(task) do |f| %>
     
-    <!-- error message -->
-    <% if task.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert alert-warning">
-          <ul>
-            <% task.errors.full_messages.each do |error| %>
-            <li>
-              <%= error %>
-            </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    <!--error_message -->
+    <%= render 'layouts/error_messages', model: f.object %>
     
     <div class="form-group">
       <%= f.label :content ,'タスク' %>
