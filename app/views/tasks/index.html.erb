@@ -1,16 +1,19 @@
-<% #if logged_in? %>
+<% if logged_in? %>
 
-<ul>
-  <% @user.tasks.each do |task| %>
-  <li>
-    <%= task.name %> <%= task.content %>
-  </li>
-  <% end %>
-</ul>
+<div class="row">
+  <aside class="col-md-4">
+    <%= render 'tasks_form', task: @task %>
+  </aside>
 
-<%# else %>
+  <div class="col-xs-8">
+    <%= render 'tasks_desplay', tasks: @tasks %>
+  </div>
+</div>
 
-<%= render 'users/users_form', user: @user %>
 
-<%= link_to '新規登録',  'users/new' %>
+<% else %>
 
+  <%= render 'users/users_form', user: @user %>
+  
+  <%= link_to '新規登録',  'users/new' %>
+<% end %>

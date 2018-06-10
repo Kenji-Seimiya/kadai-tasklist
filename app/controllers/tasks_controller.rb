@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   
   def index
-    @tasks = Task.all
-    @user = User.new
+    @task = current_user.tasks.build #form_for用
+    @tasks = current_user.tasks.all #task一覧
   end
   
   def show
@@ -15,24 +15,26 @@ class TasksController < ApplicationController
   end
   
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     
     if @task.save
       flash[:success] = '登録されました'
-      redirect_to @task
+      redirect_to root_url
     else
       flash.now[:danger] = '登録されませんでした'
-      render :new
+      @tasks = current_user.tasks.all
+      render 'toppages/index'
     end
   end
   
   def edit
+    
   end
   
   def update
     if @task.update(task_params)
       flash[:success] = '更新されました'
-      redirect_to @task
+      redirect_to root_url
     else
       flash.now[:danger] = '更新されませんでした'
       render :edit
@@ -55,6 +57,6 @@ class TasksController < ApplicationController
   end
   
   def set_message
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 end

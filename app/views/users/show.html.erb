@@ -10,6 +10,13 @@
     </div>
   </aside>
   <div class="col-xs-8">
-    
+    <h2>タスク一覧</h2>
+    <ul>
+      <% @user.tasks.each do |task| %>
+      <li>
+        <%= task.content %> ==> <%= task.status %>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>
