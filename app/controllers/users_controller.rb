@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tasks = @user.tasks
+    unless current_user.id == @user.id
+      redirect_to root_url
+    end
+    
   end
 
   def new
